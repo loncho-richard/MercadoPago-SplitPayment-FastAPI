@@ -9,7 +9,7 @@ from sqlmodel import Session
 
 
 
-router = APIRouter()
+router = APIRouter(tags=["Mercado Pago Integration"])
 
 
 @router.get("/get-auth-url", status_code=status.HTTP_200_OK)
