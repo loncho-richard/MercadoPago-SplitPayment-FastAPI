@@ -5,15 +5,17 @@ class Settings(BaseSettings):
     ENVIRONMENT: Literal["development", "production"] = "development"
     
     DATABASE_URL: str = "sqlite:///database.db"
-    SECRET_KEY: str
+    SECRET_KEY: str = "secret_key"
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+    REFRESH_TOKEN_EXPIRE_DAYS: int = 30
+    TOKEN_ROTATION_ENABLED: bool = True
     CORS_ORIGINS: list[str] = ["*"]
     DOMAIN: str = "localhost"
     
     # Mercado Pago
-    MP_CLIENT_ID: str
-    MP_CLIENT_SECRET: str
+    MP_CLIENT_ID: str = ""
+    MP_CLIENT_SECRET: str = ""
     MP_MARKETPLACE_FEE: float = 0.05  # 5% fee
 
     model_config = SettingsConfigDict(
